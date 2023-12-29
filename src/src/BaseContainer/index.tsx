@@ -415,16 +415,16 @@ const BaseContainer: FC<BaseContainerProps> = ({}) => {
       <Grid container spacing={1}>
         <Grid xs={6}>
           <Grid spacing={1}>
-            <Grid xs={12} sx={{ my: 1 }}>
+            <Grid xs={12} sx={{ my: 2 }}>
               <MyDataGridTable
                 myCusTomList={initWeapons}
                 label={"Ateşli Silahlar"}
               />
             </Grid>
-            <Grid xs={12} sx={{ my: 1 }}>
+            <Grid xs={12} sx={{ my: 2 }}>
               <MyDataGridTable myCusTomList={initEquipment} label={"Tehçizat"} />
             </Grid>
-            <Grid xs={12} sx={{ my: 1 }}>
+            <Grid xs={12} sx={{ my: 2 }}>
               <MyDataGridTable
                 myCusTomList={initTrainedPersonnel}
                 label={"Eğitimli Personel"}
@@ -435,19 +435,19 @@ const BaseContainer: FC<BaseContainerProps> = ({}) => {
 
         <Grid xs={6}>
           <Grid spacing={1}>
-            <Grid xs={12} sx={{ my: 1 }}>
+            <Grid xs={12} sx={{ my: 2 }}>
               <MyDataGridTable
                 myCusTomList={initTechnicalEquipment}
                 label={"Teknik Ekipmanlar"}
               />
             </Grid>
-            <Grid xs={12} sx={{ my: 1 }}>
+            <Grid xs={12} sx={{ my: 2 }}>
               <MyDataGridTable myCusTomList={initAmmo} label={"Mühimmat"} />
             </Grid>
-            <Grid xs={12} sx={{ my: 1 }}>
+            <Grid xs={12} sx={{ my: 2 }}>
               <MyDataGridTable myCusTomList={initVehicle} label={"Araç"} />
             </Grid>
-            <Grid xs={12} sx={{ my: 1 }}>
+            <Grid xs={12} sx={{ my: 2 }}>
               <MyDataGridTable
                 myCusTomList={initPersonelTypeModel}
                 label={"Personel"}

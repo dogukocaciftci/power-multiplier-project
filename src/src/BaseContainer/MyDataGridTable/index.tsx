@@ -86,14 +86,14 @@ const MyDataGridTableContainer: FC<MyDataGridTableContainerProps> = ({
     {
       field: "name",
       headerName: "İsim",
-      width: 160,
+      width: 175,
       editable: false,
       renderHeader: (params) => <b>{params.colDef.headerName}</b>,
     },
     {
       field: "constant",
       headerName: "Çarpan",
-      width: 80,
+      width: 70,
       editable: false,
       renderHeader: (params) => <b>{params.colDef.headerName}</b>,
     },
@@ -101,7 +101,7 @@ const MyDataGridTableContainer: FC<MyDataGridTableContainerProps> = ({
       field: "count",
       headerName: "Adet",
       type: "number",
-      width: 80,
+      width: 70,
       align: "left",
       headerAlign: "left",
       editable: true,
@@ -110,7 +110,7 @@ const MyDataGridTableContainer: FC<MyDataGridTableContainerProps> = ({
         return (
           <Card
             sx={{
-              width: 80,
+              width: 70,
               height: 40,
               display: "flex",
               justifyContent: "center",
