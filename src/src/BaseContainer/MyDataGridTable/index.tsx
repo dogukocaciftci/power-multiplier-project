@@ -93,7 +93,7 @@ const MyDataGridTableContainer: FC<MyDataGridTableContainerProps> = ({
     {
       field: "constant",
       headerName: "Çarpan",
-      width: 70,
+      width: 80,
       editable: false,
       renderHeader: (params) => <b>{params.colDef.headerName}</b>,
     },
@@ -126,7 +126,7 @@ const MyDataGridTableContainer: FC<MyDataGridTableContainerProps> = ({
       field: "totalPoint",
       headerName: "Toplam Puan",
       type: "number",
-      width: 200,
+      width: 100,
       align: "left",
       headerAlign: "left",
       editable: false,
