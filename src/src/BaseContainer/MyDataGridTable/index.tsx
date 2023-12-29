@@ -87,7 +87,7 @@ const MyDataGridTableContainer: FC<MyDataGridTableContainerProps> = ({
       field: "name",
       headerName: "İsim",
       width: 160,
-      editable: true,
+      editable: false,
       renderHeader: (params) => <b>{params.colDef.headerName}</b>,
     },
     {
@@ -133,17 +133,7 @@ const MyDataGridTableContainer: FC<MyDataGridTableContainerProps> = ({
       renderHeader: (params) => <b>{params.colDef.headerName}</b>,
       renderCell: (params) => {
         return (
-          <Card
-            sx={{
-              width: 80,
-              height: 40,
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-            }}
-          >
-            {params.row.constant * params.row.count}
-          </Card>
+          params.row.constant * params.row.count
         );
       },
     },
@@ -177,6 +167,12 @@ const MyDataGridTableContainer: FC<MyDataGridTableContainerProps> = ({
         processRowUpdate={processRowUpdate}
         hideFooterPagination={true}
         hideFooter={true}
+        initialState={{
+          columns: {
+            columnVisibilityModel: {
+              constant: false,
+          }}
+        }}
         slots={{
           toolbar: EditToolbar,
         }}
