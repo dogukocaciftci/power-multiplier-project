@@ -45,9 +45,9 @@ interface MyDataGridTableContainerProps {
 }
 
 const MyDataGridTableContainer: FC<MyDataGridTableContainerProps> = ({
-  myCusTomList,
-  label,
-}) => {
+                                                                       myCusTomList,
+                                                                       label,
+                                                                     }) => {
   const [rows, setRows] = React.useState(myCusTomList);
   const [rowModesModel, setRowModesModel] = React.useState<GridRowModesModel>(
     {}
@@ -86,14 +86,14 @@ const MyDataGridTableContainer: FC<MyDataGridTableContainerProps> = ({
     {
       field: "name",
       headerName: "İsim",
-      width: 180,
+      width: 160,
       editable: true,
       renderHeader: (params) => <b>{params.colDef.headerName}</b>,
     },
     {
       field: "constant",
       headerName: "Çarpan",
-      width: 80,
+      width: 70,
       editable: false,
       renderHeader: (params) => <b>{params.colDef.headerName}</b>,
     },
@@ -106,6 +106,21 @@ const MyDataGridTableContainer: FC<MyDataGridTableContainerProps> = ({
       headerAlign: "left",
       editable: true,
       renderHeader: (params) => <b>{params.colDef.headerName}</b>,
+      renderCell: (params) => {
+        return (
+          <Card
+            sx={{
+              width: 80,
+              height: 40,
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            {params.row.count}
+          </Card>
+        );
+      },
     },
     {
       field: "totalPoint",
@@ -143,12 +158,13 @@ const MyDataGridTableContainer: FC<MyDataGridTableContainerProps> = ({
         boxShadow: 1,
         border: 1,
         width: "100%",
+        minWidth: "100%",
         "& .actions": {
           color: "text.secondary",
         },
         "& .textPrimary": {
           color: "text.primary",
-        },
+        }
       }}
     >
       <DataGrid
