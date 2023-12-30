@@ -410,6 +410,22 @@ export const initTechnicalEquipment: TechnicalEquipmentType[] = [
 
 interface BaseContainerProps {}
 const BaseContainer: FC<BaseContainerProps> = ({}) => {
+
+  const initTableData = {
+    weapons: {
+      rows: initWeapons,
+      label: "Ateşli Silahlar",
+      totalPower: 0,
+    },
+    equipment: {
+      rows: initEquipment,
+      label: "Tehçizat",
+      totalPower: 0,
+    },
+  }
+
+  const [tableData, setTableData] = React.useState(initWeapons);
+
   return (
     <Box sx={{ flexGrow: 1, m: 1, ml: 25 }}>
       <Grid container spacing={1}>
