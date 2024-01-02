@@ -45,9 +45,9 @@ interface MyDataGridTableContainerProps {
 }
 
 const MyDataGridTableContainer: FC<MyDataGridTableContainerProps> = ({
-  myCusTomList,
-  label,
-}) => {
+                                                                       myCusTomList,
+                                                                       label,
+                                                                     }) => {
   const [rows, setRows] = React.useState(myCusTomList);
   const [rowModesModel, setRowModesModel] = React.useState<GridRowModesModel>(
     {}
@@ -86,14 +86,14 @@ const MyDataGridTableContainer: FC<MyDataGridTableContainerProps> = ({
     {
       field: "name",
       headerName: "İsim",
-      width: 180,
-      editable: true,
+      width: 175,
+      editable: false,
       renderHeader: (params) => <b>{params.colDef.headerName}</b>,
     },
     {
       field: "constant",
       headerName: "Çarpan",
-      width: 80,
+      width: 70,
       editable: false,
       renderHeader: (params) => <b>{params.colDef.headerName}</b>,
     },
@@ -101,34 +101,39 @@ const MyDataGridTableContainer: FC<MyDataGridTableContainerProps> = ({
       field: "count",
       headerName: "Adet",
       type: "number",
-      width: 80,
+      width: 70,
       align: "left",
       headerAlign: "left",
       editable: true,
-      renderHeader: (params) => <b>{params.colDef.headerName}</b>,
-    },
-    {
-      field: "totalPoint",
-      headerName: "Toplam Puan",
-      type: "number",
-      width: 200,
-      align: "left",
-      headerAlign: "left",
-      editable: false,
       renderHeader: (params) => <b>{params.colDef.headerName}</b>,
       renderCell: (params) => {
         return (
           <Card
             sx={{
-              width: 80,
+              width: 70,
               height: 40,
               display: "flex",
               justifyContent: "center",
               alignItems: "center",
             }}
           >
-            {params.row.constant * params.row.count}
+            {params.row.count}
           </Card>
+        );
+      },
+    },
+    {
+      field: "totalPoint",
+      headerName: "Toplam Puan",
+      type: "number",
+      width: 100,
+      align: "left",
+      headerAlign: "left",
+      editable: false,
+      renderHeader: (params) => <b>{params.colDef.headerName}</b>,
+      renderCell: (params) => {
+        return (
+          params.row.constant * params.row.count
         );
       },
     },
@@ -143,12 +148,13 @@ const MyDataGridTableContainer: FC<MyDataGridTableContainerProps> = ({
         boxShadow: 1,
         border: 1,
         width: "100%",
+        minWidth: "100%",
         "& .actions": {
           color: "text.secondary",
         },
         "& .textPrimary": {
           color: "text.primary",
-        },
+        }
       }}
     >
       <DataGrid
@@ -161,6 +167,12 @@ const MyDataGridTableContainer: FC<MyDataGridTableContainerProps> = ({
         processRowUpdate={processRowUpdate}
         hideFooterPagination={true}
         hideFooter={true}
+        initialState={{
+          columns: {
+            columnVisibilityModel: {
+              constant: false,
+          }}
+        }}
         slots={{
           toolbar: EditToolbar,
         }}

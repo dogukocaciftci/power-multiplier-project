@@ -1,4 +1,4 @@
-import { FC } from "react";
+import {FC} from "react";
 import { Box } from "@mui/material";
 import Grid from "@mui/material/Unstable_Grid2";
 import MyDataGridTable from "./MyDataGridTable";
@@ -411,50 +411,55 @@ export const initTechnicalEquipment: TechnicalEquipmentType[] = [
 interface BaseContainerProps {}
 const BaseContainer: FC<BaseContainerProps> = ({}) => {
   return (
-    <Box sx={{ flexGrow: 1, m: 1 }}>
+    <Box sx={{ flexGrow: 1, m: 1, ml: 25 }}>
       <Grid container spacing={1}>
-        <Grid xs={12}>
-          <MyDataGridTable
-            myCusTomList={initWeapons}
-            label={"Ateşli Silahlar"}
-          />
+        <Grid xs={6}>
+          <Grid spacing={1}>
+            <Grid xs={12} sx={{ my: 2 }}>
+              <MyDataGridTable
+                myCusTomList={initWeapons}
+                label={"Ateşli Silahlar"}
+              />
+            </Grid>
+            <Grid xs={12} sx={{ my: 2 }}>
+              <MyDataGridTable myCusTomList={initEquipment} label={"Tehçizat"} />
+            </Grid>
+            <Grid xs={12} sx={{ my: 2 }}>
+              <MyDataGridTable
+                myCusTomList={initTrainedPersonnel}
+                label={"Eğitimli Personel"}
+              />
+            </Grid>
+          </Grid>
         </Grid>
 
-        <Grid xs={12}>
-          <MyDataGridTable myCusTomList={initEquipment} label={"Tehçizat"} />
+        <Grid xs={6}>
+          <Grid spacing={1}>
+            <Grid xs={12} sx={{ my: 2 }}>
+              <MyDataGridTable
+                myCusTomList={initTechnicalEquipment}
+                label={"Teknik Ekipmanlar"}
+              />
+            </Grid>
+            <Grid xs={12} sx={{ my: 2 }}>
+              <MyDataGridTable myCusTomList={initAmmo} label={"Mühimmat"} />
+            </Grid>
+            <Grid xs={12} sx={{ my: 2 }}>
+              <MyDataGridTable myCusTomList={initVehicle} label={"Araç"} />
+            </Grid>
+            <Grid xs={12} sx={{ my: 2 }}>
+              <MyDataGridTable
+                myCusTomList={initPersonelTypeModel}
+                label={"Personel"}
+              />
+            </Grid>
+          </Grid>
         </Grid>
 
-        <Grid xs={12}>
-          <MyDataGridTable
-            myCusTomList={initTechnicalEquipment}
-            label={"Teknik Ekipmanlar"}
-          />
-        </Grid>
-
-        <Grid xs={12}>
-          <MyDataGridTable myCusTomList={initAmmo} label={"Mühimmat"} />
-        </Grid>
-
-        <Grid xs={12}>
-          <MyDataGridTable
-            myCusTomList={initTrainedPersonnel}
-            label={"Eğitimli Personel"}
-          />
-        </Grid>
-
-        <Grid xs={12}>
-          <MyDataGridTable myCusTomList={initVehicle} label={"Araç"} />
-        </Grid>
-
-        <Grid xs={12}>
-          <MyDataGridTable
-            myCusTomList={initPersonelTypeModel}
-            label={"Personel"}
-          />
-        </Grid>
       </Grid>
     </Box>
   );
 };
 
+// @ts-ignore
 export default BaseContainer;
